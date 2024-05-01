@@ -6,8 +6,8 @@ El diseño del programa esta basado en mi caso particular de estudio, donde todo
 - El formato de la primer página es igual para todos los PDF.
 - El formato de todas las páginas entre la primera y la última, es el mismo.
 - El formato de la última hoja respeta el formato de las hojas previas a excepción del largo de la tabla, el cual será variable.
-[!NOTE]
-El script cuenta con un archivo de prueba incorporado, denominado `test.pdf`, para poder realizar una prueba inicial.
+> [!NOTE]
+> El script cuenta con un archivo de prueba incorporado, denominado `test.pdf`, para poder realizar una prueba inicial.
 
 ## Implementacion
 El scripting esta realizado en lenguaje Python y, adicionalmente, se utilizaron principalmente dos librerías:
@@ -15,13 +15,13 @@ El scripting esta realizado en lenguaje Python y, adicionalmente, se utilizaron 
 - `pandas`
 Con `tabula-py` realizamos la lectura de los archivos PDF, definiendo el área total (de manera relativa, %) y el ancho de cada columna. Este paso es ligeramente arbitrario, pero tiene bases tanto en inspección visual como en el uso de la metodología "trial and error".
 > [!IMPORTANT] 
-El correcto procesamiento de las tablas PDF yace en una correcta delimiticación del área a interpretar. De tal modo, para adaptar el script a otros archivos es imperativo corregir adecuadamente los límites del dicha área.
+> El correcto procesamiento de las tablas PDF yace en una correcta delimiticación del área a interpretar. De tal modo, para adaptar el script a otros archivos es imperativo corregir adecuadamente los límites del dicha área.
 
 Los datos recoletados por `tabula.read_pdf()` se pasan a lista y se van concatenando a medida que el programa va recorriendo iterativamente las hojas del documento PDF en cuestión.
 Finalmente, mediante la utilización de DataFrames de la libreria `pandas`, procedemos a crear un DataFrame con la información recolectada para ser exportada gracias al método `.to_csv()`
 ### Deployment
 > [!CAUTION]
-Es muy importante no perder de vista que, dada la variabilidad en la cantidad de hojas y el tamaño de la tabla de la hoja final, es necesario definir estos parámetros cada vez que se ejecute este script.
+> Es muy importante no perder de vista que, dada la variabilidad en la cantidad de hojas y el tamaño de la tabla de la hoja final, es necesario definir estos parámetros cada vez que se ejecute este script.
 
 Para arrancar el servicio en su totalidad luego de clonar el repositorio, deben realizarse los siguientes pasos:
 1. Crear entorno virtual: ```python -m venv /path/to/new/virtual/environment```
@@ -29,13 +29,13 @@ Para arrancar el servicio en su totalidad luego de clonar el repositorio, deben 
 3. Instalar los paquetes necesarios: ```pip install -r requirements.txt```
 4. Copiar los archivos PDF a la carpeta **pdf**
 5. Iniciar el servicio: ```py main.py pdf_file csv_file pages last_page_length```
-    [!CAUTION] Los argumentos se pasan al intérprete (terminal) **en el orden indicado**. El script funciona con uno, varios o ningún argumento.
      - `pdf_file`: nombre del archivo a procesar (**required**)
      - `csv_file`: nombre del archivo de destino (*optional*)
      - `pages`: cantidad de páginas a procesar (*optional*)
      - `last_page_length`: tamaño relativo de la última página; teniendo en cuenta el caso particular de estudio, será un número entre 23 y 92 (*optional*)
-[!TIP]
-Si se omite:
+> [!CAUTION] Los argumentos se pasan al intérprete (terminal) **en el orden indicado**. El script funciona con uno, varios o ningún argumento.
+> [!TIP]
+> Si se omite:
 1. `csv_file`: se exportará con el mismo nombre del archivo de origen.
 2. `pages`: se tomará el valor por defecto, calibrado al archivo de prueba
 3. `last_page_length`: se tomará el valor por defecto, calibrado al archivo de prueba

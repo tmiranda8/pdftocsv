@@ -18,8 +18,8 @@ if len(sys.argv) > 1:
         last_page_length = default
     output_path = fr'C:\Users\RTX\Desktop\python\pdftocsv\csv\{csv_name}.csv'
 else:
-    path = r'C:\Users\RTX\Desktop\python\pdftocsv\test\test.pdf'
-    output_path = r'C:\Users\RTX\Desktop\python\pdftocsv\test\test.csv'
+    path = r'C:\Users\RTX\Desktop\python\pdftocsv\pdf\test.pdf'
+    output_path = r'C:\Users\RTX\Desktop\python\pdftocsv\csv\test.csv'
     last_page = 15
     last_page_length = default
 

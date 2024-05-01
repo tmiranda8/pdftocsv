@@ -7,7 +7,7 @@ El diseño del programa esta basado en mi caso particular de estudio, donde todo
 - El formato de todas las páginas entre la primera y la última, es el mismo.
 - El formato de la última hoja respeta el formato de las hojas previas a excepción del largo de la tabla, el cual será variable.
 [!NOTE]
-El script cuenta con un archivo de prueba incorporado, denominado `test.pdf`, para poder realizar una prueba inicial. La dirección de destino del archivo exportado es la misma que el archivo de origen, ubicado en `test/`.
+El script cuenta con un archivo de prueba incorporado, denominado `test.pdf`, para poder realizar una prueba inicial.
 
 ## Implementacion
 El scripting esta realizado en lenguaje Python y, adicionalmente, se utilizaron principalmente dos librerías:
@@ -29,16 +29,16 @@ Para arrancar el servicio en su totalidad luego de clonar el repositorio, deben 
 3. Instalar los paquetes necesarios: ```pip install -r requirements.txt```
 4. Copiar los archivos PDF a la carpeta **pdf**
 5. Iniciar el servicio: ```py main.py pdf_file csv_file pages last_page_length```
-    > [!CAUTION] Los argumentos se pasan al intérprete (terminal) **en el orden indicado**. El script funciona con uno, varios o ningún argumento.
+    [!CAUTION] Los argumentos se pasan al intérprete (terminal) **en el orden indicado**. El script funciona con uno, varios o ningún argumento.
      - `pdf_file`: nombre del archivo a procesar (**required**)
      - `csv_file`: nombre del archivo de destino (*optional*)
      - `pages`: cantidad de páginas a procesar (*optional*)
      - `last_page_length`: tamaño relativo de la última página; teniendo en cuenta el caso particular de estudio, será un número entre 23 y 92 (*optional*)
-    [!TIP]
-    Si se omite:
-    1. `csv_file`: se exportará con el mismo nombre del archivo de origen.
-    2. `pages`: se tomará el valor por defecto, calibrado al archivo de prueba
-    3. `last_page_length`: se tomará el valor por defecto, calibrado al archivo de prueba
-    El órden de precedencia de los argumentos es:
-    `pdf_file` -> `pages` -> `csv_file` -> `last_page_length`
+[!TIP]
+Si se omite:
+1. `csv_file`: se exportará con el mismo nombre del archivo de origen.
+2. `pages`: se tomará el valor por defecto, calibrado al archivo de prueba
+3. `last_page_length`: se tomará el valor por defecto, calibrado al archivo de prueba
+El órden de precedencia de los argumentos es:
+`pdf_file` -> `pages` -> `csv_file` -> `last_page_length`
 

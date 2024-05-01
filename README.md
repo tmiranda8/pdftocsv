@@ -21,7 +21,7 @@ Con `tabula-py` realizamos la lectura de los archivos PDF, definiendo el área t
 Los datos recoletados por `tabula.read_pdf()` se pasan a lista y se van concatenando a medida que el programa va recorriendo iterativamente las hojas del documento PDF en cuestión.
 Finalmente, mediante la utilización de DataFrames de la libreria `pandas`, procedemos a crear un DataFrame con la información recolectada para ser exportada gracias al método `.to_csv()`
 ### Deployment
-> [!CAUTION]
+> [!WARNING]
 > Es muy importante no perder de vista que, dada la variabilidad en la cantidad de hojas y el tamaño de la tabla de la hoja final, es necesario definir estos parámetros cada vez que se ejecute este script.
 
 Para arrancar el servicio en su totalidad luego de clonar el repositorio, deben realizarse los siguientes pasos:
@@ -36,6 +36,8 @@ Para arrancar el servicio en su totalidad luego de clonar el repositorio, deben 
      - `last_page_length`: tamaño relativo de la última página; teniendo en cuenta el caso particular de estudio, será un número entre 23 y 92 (*optional*)
 > [!CAUTION]
 > Los argumentos se pasan al intérprete (terminal) **en el orden indicado**. El script funciona con uno, varios o ningún argumento.
+
+
 > [!TIP]
 > Si se omite:
 1. `csv_file`: se exportará con el mismo nombre del archivo de origen.

@@ -40,9 +40,9 @@ Para arrancar el servicio en su totalidad luego de clonar el repositorio, deben 
 
 > [!TIP]
 > Si se omite:
-    1. `csv_file`: se exportará con el mismo nombre del archivo de origen.
-    2. `pages`: se tomará el valor por defecto, calibrado al archivo de prueba
-    3. `last_page_length`: se tomará el valor por defecto, calibrado al archivo de prueba
+     - `csv_file`: se exportará con el mismo nombre del archivo de origen.
+     - `pages`: se tomará el valor por defecto, calibrado al archivo de prueba
+     - `last_page_length`: se tomará el valor por defecto, calibrado al archivo de prueba
     El órden de precedencia de los argumentos es:
     `pdf_file` -> `pages` -> `csv_file` -> `last_page_length`
 

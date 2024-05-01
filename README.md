@@ -35,14 +35,12 @@ Para arrancar el servicio en su totalidad luego de clonar el repositorio, deben 
      - `pages`: cantidad de páginas a procesar (*optional*)
      - `last_page_length`: tamaño relativo de la última página; teniendo en cuenta el caso particular de estudio, será un número entre 23 y 92 (*optional*)
 > [!CAUTION]
-> Los argumentos se pasan al intérprete (terminal) **en el orden indicado**. El script funciona con uno, varios o ningún argumento.
+> Los argumentos se pasan al intérprete (terminal) **en el orden indicado**. El script funciona con uno, varios o ningún argumento. El órden de precedencia de los argumentos es: `pdf_file` -> `pages` -> `csv_file` -> `last_page_length`
 
 
 > [!TIP]
 > Si se omite:
-     - `csv_file`: se exportará con el mismo nombre del archivo de origen.
-     - `pages`: se tomará el valor por defecto, calibrado al archivo de prueba
-     - `last_page_length`: se tomará el valor por defecto, calibrado al archivo de prueba
-    El órden de precedencia de los argumentos es:
-    `pdf_file` -> `pages` -> `csv_file` -> `last_page_length`
+- `csv_file`: se exportará con el mismo nombre del archivo de origen.
+- `pages`: se tomará el valor por defecto, calibrado al archivo de prueba
+- `last_page_length`: se tomará el valor por defecto, calibrado al archivo de prueba
 

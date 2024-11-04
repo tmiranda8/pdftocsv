@@ -6,12 +6,14 @@ El objetivo es permitirle al usuario manipular tablas de datos con orígen en ar
 > Se ha incluido el archivo de prueba `test.pdf` para que el usuario pueda probar rápidamente la lógica de funcionamiento. Para ello, correr ```py main.py``` en terminal, que devolverá el índice de la fila correspondientes a cada salto de página. `test.csv` deberá encontrarse en el directorio correspondiente. 
 
 ## Implementacion
+> [!IMPORTANT] 
+> Es necesario que los datos esten incrustados como texto en el archivo PDF. De lo contrario, no es posible su procesamiento (por ej, si estan como imagen).
 El script esta orientado a procesar de forma dinámica archivos que comparten ciertas características en común:
 - El formato de presentación de los datos, como la disposición de las columnas, es igual en todos los PDF.
 - Los márgenes de todas las páginas entre la primera y la última, es el mismo.
 - Unicamente el márgen superior de la primer página y el márgen inferior de la última son ajustables.
-> [!IMPORTANT] 
-> Es necesario que los datos esten incrustados como texto en el archivo PDF. De lo contrario, no es posible su procesamiento (por ej, si estan como imagen).
+> [!NOTE]
+Luego de procesar los datos, es necesario adicionalmente editarlos en bulk (por ejemplo, con Power Query). Hace falta quitar puntuacion innecesaria, cambiar el punto decimal (de ',' a '.') y finalmente el tipo de dato de las columnas, de texto a numero decimal.
 
 ### Deployment
 Python utilizará principalmente dos librerías:
@@ -40,8 +42,7 @@ Luego de clonar el repositorio, realizar los siguientes pasos para ejecutar el s
 > [!NOTE]
 > El script funciona con uno, ningún o con algunas combinaciones especificas de argumentos. El órden de importancia de los argumentos es: `pdf_file` -> `pages` -> `csv_file` -> `last_page_length`.
 
-> [!TIP]
-> Si se omite:
+Si se omite:
 - `pdf_file`: se procesará el archivo de prueba
 - `csv_file`: se exportará con el mismo nombre del archivo de origen.
 - `pages`: se tomará el valor por defecto, calibrado al archivo de prueba.

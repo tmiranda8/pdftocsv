@@ -15,7 +15,7 @@ if len(sys.argv) > 1:
             if len(sys.argv) > 5:
                 first_page_length = int(sys.argv[5])
             else:
-                first_page_length = 27
+                first_page_length = 35
         else:
             last_page_length = default
     else:
@@ -43,7 +43,7 @@ def page_call(i):
     elif i == (last_page-1):
         page = tabula.read_pdf(path, pages=i, pandas_options={'header': None}, area=[24,0,last_page_length,100], relative_area=True, relative_columns=True, columns=[11,17,55,67,85,100])
     else:
-        page = tabula.read_pdf(path, pages=i, pandas_options={'header': None}, area=[24,0,92,100], relative_area=True, relative_columns=True, columns=[11,17,55,67,85,100])
+        page = tabula.read_pdf(path, pages=i, pandas_options={'header': None}, area=[24,0,91,100], relative_area=True, relative_columns=True, columns=[11,17,55,67,85,100])
     page[0].columns = ['Fecha','ID','Descripcion','Debito','Credito','Saldo']
     return page
 

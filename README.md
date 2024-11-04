@@ -3,7 +3,7 @@ Script desarrollado en Python, de gran utilidad para transformar extensas tablas
 ## Finalidad
 El objetivo es permitirle al usuario manipular tablas de datos con orígen en archivos PDF, en una planilla de cálculo. Para ello es necesario convertir los datos en un formato acorde para importarlos, como CSV.
 > [!NOTE]
-> Se ha incluido el archivo de prueba `test.pdf` para que el usuario pueda probar rápidamente la lógica de funcionamiento. Para ello, correr ```py main.py``` en terminal, que devolverá el índice de la fila correspondientes a cada salto de página. `csv_file` deberá encontrarse en el directorio correspondiente. 
+> Se ha incluido el archivo de prueba `test.pdf` para que el usuario pueda probar rápidamente la lógica de funcionamiento. Para ello, correr ```py main.py``` en terminal, que devolverá el índice de la fila correspondientes a cada salto de página. `test.csv` deberá encontrarse en el directorio correspondiente. 
 
 ## Implementacion
 El script esta orientado a procesar de forma dinámica archivos que comparten ciertas características en común:
@@ -34,8 +34,8 @@ Detalles:
      - `csv_file`: nombre del archivo de destino (*optional*)
      - `pages`: cantidad de páginas a procesar (*optional*)
           - es posible ```py main.py pdf_file pages``` 
-     - `last_page_length`: tamaño relativo (0~100%) de la última página (*optional*)
-     - `first_page_length`: tamaño relativo (0~100%) de la última página (*optional*)
+     - `last_page_length`: tamaño relativo (0-100%) de la última página (*optional*)
+     - `first_page_length`: tamaño relativo (0-100%) de la última página (*optional*)
 > [!NOTE]
 > El script funciona con uno, ningún o con algunas combinaciones especificas de argumentos. El órden de importancia de los argumentos es: `pdf_file` -> `pages` -> `csv_file` -> `last_page_length`.
 

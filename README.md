@@ -29,6 +29,7 @@ Luego de clonar el repositorio, realizar los siguientes pasos para ejecutar el s
 ```py main.py pdf_file csv_file pages last_page_length first_page_length```
 > [!CAUTION]
 > Los argumentos se pasan al intérprete (terminal) **en el orden indicado**.
+
 Detalles:
      - `pdf_file`: nombre del archivo a procesar (**required**)
      - `csv_file`: nombre del archivo de destino (*optional*)
@@ -36,6 +37,7 @@ Detalles:
           - es posible ```py main.py pdf_file pages``` 
      - `last_page_length`: tamaño relativo (0-100%) de la última página (*optional*)
      - `first_page_length`: tamaño relativo (0-100%) de la última página (*optional*)
+
 > [!NOTE]
 > El script funciona con uno, ningún o con algunas combinaciones especificas de argumentos. El órden de importancia de los argumentos es: `pdf_file` -> `pages` -> `csv_file` -> `last_page_length`.
 

@@ -20,6 +20,7 @@ if len(sys.argv) > 1:
             last_page_length = default
     else:
         csv_name = pdf_name
+        first_page_length = 35
         last_page_length = default
         if len(sys.argv) == 2:
             last_page = 15

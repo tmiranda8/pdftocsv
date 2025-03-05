@@ -1,11 +1,11 @@
 from rich import pretty, traceback
 traceback.install()
-from lib.vars import toolkit
-from lib.parser import parse
-from lib.utils import updater
-from lib.export import csv_export
-from lib.interface import StringPrompt, IntegerPrompt
-from lib.modes import templates
+from libs.vars import toolkit
+from libs.parser import parse
+from libs.utils import updater
+from libs.export import csv_export
+from libs.interface import StringPrompt, IntegerPrompt
+from libs.modes import templates
 
 def main() -> None:
     while True:

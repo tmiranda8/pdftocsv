@@ -1,17 +1,32 @@
 templates = {
     'credicoop' : {
+        'path':r'pdf\credicoop\test.pdf',
+        'output_path':r'csv\credicoop.csv',
         'area':[24,0,92,100], 
         'columns':[11,17,55,67,85,100],
-        'labels':['Fecha','ID','Descripcion','Debito','Credito','Saldo']
+        'labels':['Fecha','ID','Descripcion','Debito','Credito','Saldo'],
+        'pages':15,
+        'first_page_length':35,
+        'last_page_length':51
         },
     'galicia':{
-        'area':[24,0,91,100], 
-        'columns':[11,17,55,67,85,100],
-        'labels':['Fecha','ID','Descripcion','Debito','Credito','Saldo']
+        'path':r'pdf\galicia\test.pdf',
+        'output_path':r'csv\galicia.csv',
+        'area':[12,0,93,100], 
+        'columns':[13,46,64,82,100],
+        'labels':['Fecha','Descripcion','Credito','Debito','Saldo'],
+        'pages':3,
+        'first_page_length':50,
+        'last_page_length':61
         },
     'supervielle':{
+        'path':r'pdf\supervielle\test.pdf',
+        'output_path':r'csv\supervielle.csv',
         'area':[24,0,91,100], 
         'columns':[11,17,55,67,85,100],
-        'labels':['Fecha','ID','Descripcion','Debito','Credito','Saldo']
+        'labels':['Fecha','ID','Descripcion','Debito','Credito','Saldo'],
+        'pages':15,
+        'first_page_length':35,
+        'last_page_length':51
         },
 }

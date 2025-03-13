@@ -15,10 +15,10 @@ def main() -> None:
             break
     # while True:
     #     result = IntegerPrompt
-    for i in range(1,toolkit.last_page):
+    for i in range(1,toolkit.pages):
         if i > 1:
             dict = updater(dict, parse(i))
-            if i == (toolkit.last_page-1):
+            if i == (toolkit.pages-1):
                 csv_export(dict)
         else:
             dict = parse(i)

@@ -287,3 +287,4 @@ class StringPrompt(BaseInterface[str]):
 
 class IntegerPrompt(BaseInterface[int]):
     response_type = int
+    illegal_choice_message = ("[prompt.invalid.choice]estas ingresando una opcion invalida")

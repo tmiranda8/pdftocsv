@@ -2,9 +2,9 @@ import tabula
 from libs.utils import null_row
 from libs.vars import files, toolkit
 
-dict = dict()
+data = dict()
 
-def parse(i):
+def parse(i) -> dict:
     if i == 1:
         first = toolkit.area.copy()
         first[0] = toolkit.first_page_length
@@ -16,7 +16,7 @@ def parse(i):
     else:
         dataframe = tabula.read_pdf(files.path, pages=i, pandas_options={'header': None}, area=toolkit.area, relative_area=True, relative_columns=True, columns=toolkit.columns)
     dataframe[0].columns = toolkit.labels
-    dict = {label:dataframe[0][label].values.tolist() for label in toolkit.labels}
-    null_row(dict)
-    return dict
+    data = {label:dataframe[0][label].values.tolist() for label in toolkit.labels}
+    null_row(data)
+    return data
 

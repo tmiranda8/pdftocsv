@@ -14,6 +14,11 @@ class Paths():
             cls._instance.path = ''
             cls._instance.output_path = ''
         return cls._instance
+    
+    @classmethod
+    def set_path(cls, path, dir):
+        instance = cls._instance
+        setattr(instance, path, dir)
 files = Paths()
 
 class Mode():
@@ -24,10 +29,11 @@ class Mode():
             cls._instance.area = None
             cls._instance.columns = None
             cls._instance.labels = None
+            cls._instance.pages = None
             cls._instance.first_page_length = None
             cls._instance.last_page_length = None
-            cls._instance.pages = None
         return cls._instance
+    
     @classmethod
     def set_mode(cls, mode):
         instance = cls._instance
@@ -35,9 +41,8 @@ class Mode():
             for key, value in libs.modes.templates[mode].items():
                 if hasattr(instance,key):
                     setattr(instance,key,value)
-            for key, value in libs.modes.templates[mode].items():
-                if hasattr(files,key):
-                    setattr(files, key, dir(libs.modes.templates[mode][key]))
+                elif hasattr(files, key):
+                    files.set_path(key,value)
         else:
             raise ValueError(f'{mode} es un modo invalido. intente nuevamente')
 toolkit = Mode()

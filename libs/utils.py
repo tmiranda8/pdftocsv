@@ -11,3 +11,6 @@ def null_row(dict) -> None:
     for label in toolkit.labels:
         line[label]=raw
     updater(dict, line)
+
+def trace():
+    ...

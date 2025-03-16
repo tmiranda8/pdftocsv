@@ -1,25 +1,20 @@
 from rich import pretty, traceback
 traceback.install()
-from libs.vars import toolkit
+from libs.export import csv_export
+from libs.menu import input_handler
 from libs.parser import parse
 from libs.utils import updater
-from libs.export import csv_export
-from libs.interface import StringPrompt, IntegerPrompt
-from libs.modes import templates
+from libs.vars import toolkit
 
 def main() -> None:
-    while True:
-        result = StringPrompt.ask('indique el modo', choices=list(templates.keys()), default=list(templates.keys())[1])
-        if result in templates:
-            toolkit.set_mode(result)
-            break
-    # while True:
-    #     result = IntegerPrompt
+    mode = input_handler()
+    toolkit.set_mode(mode)
     for i in range(1,toolkit.pages):
         if i > 1:
             dict = updater(dict, parse(i))
             if i == (toolkit.pages-1):
                 csv_export(dict)
+                
         else:
             dict = parse(i)
         pretty.pprint(len(dict['Fecha']))

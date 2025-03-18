@@ -46,3 +46,24 @@ class Mode():
         else:
             raise ValueError(f'{mode} es un modo invalido. intente nuevamente')
 toolkit = Mode()
+
+class Tracer():
+    _instance = None
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+            cls._instance.labels = ['Credito','Debito','Saldo']
+            cls._instance.find = ['Credito','Debito']
+            cls._instance.tracers = ['previous_last','current_first','current_last']
+            cls._instance.previous_last = None
+            cls._instance.current_first = None
+            cls._instance.current_last = None
+            cls._instance.results = [[],[],[]]
+        return cls._instance
+    @classmethod
+    def set_tracer(cls, dataset):
+        instance = cls._instance
+        for key, value in dataset.items():
+            if hasattr(instance,key):
+                setattr(instance,key,value)
+tracer = Tracer()

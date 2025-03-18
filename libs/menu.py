@@ -1,7 +1,10 @@
 import os
-from rich import print as rprint
+from rich import box, print as rprint
+from rich.console import Console
+from rich.table import Table
 from libs.interface import StringPrompt, IntegerPrompt
 from libs.modes import templates
+from libs.vars import toolkit, tracer
 
 def input_handler() -> str:
     while True:
@@ -48,3 +51,13 @@ def input_handler() -> str:
             return mode
         else:
             rprint('Ha ocurrido un problema. Contacte al administrador')
+
+def output_console():
+    console = Console()
+    table = Table(box=box.MINIMAL_DOUBLE_HEAD)
+    table.add_column('Pagina',justify='center',style='')
+    table.add_column('Indice ultima linea',justify='center',style='cyan')
+    table.add_column('Error en saldo',justify='center',style='')
+    for i in range(0,toolkit.pages):
+        table.add_row(str(tracer.results[0][i]),str(tracer.results[1][i]),str(tracer.results[2][i]))
+    console.print(table)

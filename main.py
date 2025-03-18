@@ -1,23 +1,23 @@
 from rich import pretty, traceback
 traceback.install()
-from libs.export import csv_export
+
 from libs.menu import input_handler
 from libs.parser import parse
-from libs.utils import updater
+from libs.utils import updater, pipeline, to_df, csv_export
 from libs.vars import toolkit
 
 def main() -> None:
     mode = input_handler()
     toolkit.set_mode(mode)
-    for i in range(1,toolkit.pages):
+    for i in range(1,toolkit.pages+1):
         if i > 1:
-            dict = updater(dict, parse(i))
-            if i == (toolkit.pages-1):
-                csv_export(dict)
-                
+            data = updater(data, parse(i))
+            if i == (toolkit.pages):
+                dataframe = to_df(data)
+                pipeline(dataframe)
+                csv_export(dataframe)
         else:
-            dict = parse(i)
-        pretty.pprint(len(dict['Fecha']))
+            data = parse(i)
 
 
 if __name__ == "__main__":

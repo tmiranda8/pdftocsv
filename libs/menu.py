@@ -59,6 +59,5 @@ def output_console():
     table.add_column('Indice ultima linea',justify='center',style='cyan')
     table.add_column('Error en saldo',justify='center',style='')
     for i in range(0,toolkit.pages):
-        # table.add_row(str(tracer.results[0][i]),str(tracer.results[1][i]),str(tracer.results[2][i]))
         table.add_row(*(str(getattr(results, attr)[i]) for attr in vars(results)))
     console.print(table)

@@ -14,8 +14,7 @@ def main() -> None:
             data = updater(data, parse(i))
             if i == (toolkit.pages):
                 dataframe = to_df(data)
-                pipeline(dataframe)
-                csv_export(dataframe)
+                csv_export(pipeline(dataframe))
         else:
             data = parse(i)
 

@@ -33,7 +33,6 @@ class Mode():
             cls._instance.first_page_length = None
             cls._instance.last_page_length = None
         return cls._instance
-    
     @classmethod
     def set_mode(cls, mode):
         instance = cls._instance
@@ -67,3 +66,22 @@ class Tracer():
             if hasattr(instance,key):
                 setattr(instance,key,value)
 tracer = Tracer()
+
+class Results():
+    _instance = None
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+            cls._instance.page = []
+            cls._instance.endofpage_index = []
+            cls._instance.error = []
+        return cls._instance
+    @classmethod
+    def set_results(cls, page, index, error):
+        instance = cls._instance
+        instance.page.append(page)
+        last_index = instance.endofpage_index[-1] if instance.endofpage_index else 0
+        new_index = index + last_index
+        instance.endofpage_index.append(new_index)
+        instance.error.append(error)
+results = Results()

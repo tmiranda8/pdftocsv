@@ -1,5 +1,5 @@
-import pandas
-from libs.vars import toolkit, files, tracer
+import pandas, warnings
+from libs.vars import toolkit, files, tracer, results
 from libs.menu import output_console
 from rich import pretty
 
@@ -53,24 +53,25 @@ def validator(dataframe, i):
     pipeline(dataframe)
     dataset = tracer_dataset(dataframe, i)
     tracer.set_tracer(dataset)
-    export_results(i, dataframe.shape[0], trace())
+    # export_results(i, dataframe.shape[0], trace())
+    results.set_results(i, dataframe.shape[0], trace())
 
-def export_results(page, lines, error):
-    current = [[page], [lines], [error]]
-    stored_data = [[],[],[]]
-    for i in range(0,3):
-        if i == 1:
-            if page > 1:
-                pretty.pprint(tracer.results[i])
-                pretty.pprint(current[i])
-                stored_data[i] = tracer.results[i] + current[i]
-                pretty.pprint(stored_data[i])
-            else:
-                stored_data[i].extend(current[i])
-        else:
-            stored_data[i] = tracer.results[i]
-            stored_data[i].extend(current[i])
-    tracer.set_tracer({'results':stored_data})
+# def export_results(page, lines, error):
+#     current = [[page], [lines], [error]]
+#     stored_data = [[],[],[]]
+#     for i in range(0,3):
+#         if i == 1:
+#             if page > 1:
+#                 pretty.pprint(tracer.results[i])
+#                 pretty.pprint(current[i])
+#                 stored_data[i] = tracer.results[i] + current[i]
+#                 pretty.pprint(stored_data[i])
+#             else:
+#                 stored_data[i].extend(current[i])
+#         else:
+#             stored_data[i] = tracer.results[i]
+#             stored_data[i].extend(current[i])
+#     tracer.set_tracer({'results':stored_data})
 
 def to_list(dataframe) -> dict:
     return {label:dataframe[label].values.tolist() for label in toolkit.labels}

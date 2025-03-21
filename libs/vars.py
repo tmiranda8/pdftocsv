@@ -1,4 +1,4 @@
-import os
+import os, pandas
 import libs.modes
 
 def dir(path) -> str:
@@ -57,7 +57,6 @@ class Tracer():
             cls._instance.previous_last = None
             cls._instance.current_first = None
             cls._instance.current_last = None
-            cls._instance.results = [[],[],[]]
         return cls._instance
     @classmethod
     def set_tracer(cls, dataset):
@@ -75,13 +74,29 @@ class Results():
             cls._instance.page = []
             cls._instance.endofpage_index = []
             cls._instance.error = []
+            cls._instance.previous_total = []
+            cls._instance.current_transaction = []
+            cls._instance.current_total = []
         return cls._instance
     @classmethod
     def set_results(cls, page, index, error):
         instance = cls._instance
         instance.page.append(page)
-        last_index = instance.endofpage_index[-1] if instance.endofpage_index else 0
+        last_index = instance.endofpage_index[-1] if instance.endofpage_index else -1
         new_index = index + last_index
         instance.endofpage_index.append(new_index)
         instance.error.append(error)
+        if tracer.current_first is not None:
+            instance.previous_total.append(tracer.previous_last['Saldo'])
+            instance.current_total.append(tracer.current_first['Saldo'])
+            for label in tracer.find:
+                if pandas.notna(tracer.current_first[label]):
+                    instance.current_transaction.append(tracer.current_first[label])
+            tracer.set_tracer({'previous_last':tracer.current_last})
+        else:
+            instance.previous_total.append(float(0))
+            instance.current_total.append(tracer.previous_last['Saldo'])
+            for label in tracer.find:
+                if pandas.notna(tracer.previous_last[label]):
+                    instance.current_transaction.append(tracer.previous_last[label])
 results = Results()

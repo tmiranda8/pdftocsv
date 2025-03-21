@@ -1,6 +1,7 @@
-import pandas, warnings
+import pandas
 from libs.vars import toolkit, files, tracer, results
 from libs.menu import output_console
+from rich import pretty
 
 
 def updater(dict, value) -> dict:
@@ -41,7 +42,6 @@ def trace() -> float:
             if pandas.notna(tracer.current_first[label]):
                 operacion = tracer.current_first[label]
         error = round(float((saldo + operacion) - proximo_saldo), 2)
-        tracer.set_tracer({'previous_last':tracer.current_last})
         return abs(error) if abs(error) < 1e-2 else error
     else:
         return float(0)

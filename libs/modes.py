@@ -12,7 +12,7 @@ templates = {
     'galicia':{
         'path':r'pdf\galicia\test.pdf',
         'output_path':r'csv\galicia.csv',
-        'area':[12,0,93,100], 
+        'area':[12,0,95,100], 
         'columns':[13,46,64,82,100],
         'labels':['Fecha','Descripcion','Credito','Debito','Saldo'],
         'pages':2,

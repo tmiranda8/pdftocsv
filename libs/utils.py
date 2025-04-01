@@ -30,7 +30,13 @@ def tracer_dataset(dataframe, i) -> dict:
     if i == 1:
         dataset.update({'previous_last':{label:dataframe.iloc[-1][label] for label in tracer.labels}})
     else:
-        dataset.update({'current_first':{label:dataframe.iloc[0][label] for label in tracer.labels}})
+        index = 0
+        while index < len(dataframe):
+            fr = dataframe.iloc[index]
+            if pandas.notna(fr['Saldo']) and (pandas.notna(['Credito']) or pandas.notna(['Debito'])):
+                dataset.update({'current_first':{label:dataframe.iloc[index][label] for label in tracer.labels}})
+                break
+            index += 1
         dataset.update({'current_last':{label:dataframe.iloc[-1][label] for label in tracer.labels}})
     return dataset
 

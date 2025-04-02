@@ -3,7 +3,6 @@ from libs.vars import toolkit, files, tracer, results
 from libs.menu import output_console
 from rich import pretty
 
-
 def updater(dict, value) -> dict:
     for label in toolkit.labels:
         dict[label].extend(value[label])

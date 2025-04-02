@@ -1,5 +1,5 @@
 # PDFtoCSV
-Script en Python de gran utilidad para leer tablas en archivos PDF, para su posterior uso.
+Script en Python de gran utilidad para leer tablas en archivos PDF para su posterior uso.
 ## Introducción
 ### Finalidad
 El objetivo es permitirle al usuario manipular en una planilla de cálculo tablas de datos con orígen en archivos PDF. Para ello el dataframe se exporta en formato CSV.

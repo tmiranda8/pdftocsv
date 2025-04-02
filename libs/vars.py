@@ -14,12 +14,18 @@ class Paths():
             cls._instance.path = ''
             cls._instance.output_path = ''
         return cls._instance
-    
+    @classmethod
+    def verify_directory(cls):
+        for file in ["pdf", "csv"]:
+            for mode in libs.modes.templates:
+                path = os.path.join(file, mode)
+                os.makedirs(path, exist_ok=True)
     @classmethod
     def set_path(cls, path, dir):
         instance = cls._instance
         setattr(instance, path, dir)
 files = Paths()
+files.verify_directory()
 
 class Mode():
     _instance = None

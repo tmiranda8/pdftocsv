@@ -48,6 +48,7 @@ class Mode():
                     setattr(instance,key,value)
                 elif hasattr(files, key):
                     files.set_path(key,value)
+            tracer.set_mode_labels()
         else:
             raise ValueError(f'{mode} es un modo invalido. intente nuevamente')
 toolkit = Mode()
@@ -70,6 +71,17 @@ class Tracer():
         for key, value in dataset.items():
             if hasattr(instance,key):
                 setattr(instance,key,value)
+    @classmethod
+    def set_mode_labels(cls):
+        instance = cls._instance
+        mode_labels = []
+        find = []
+        for label in toolkit.labels:
+            if label in ['Credito','Debito','Importe','Saldo']:
+                mode_labels.append(label)
+            if label in ['Credito','Debito','Importe']:
+                find.append(label)
+        instance.set_tracer({'labels':mode_labels,'find':find})
 tracer = Tracer()
 
 class Results():

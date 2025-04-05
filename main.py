@@ -1,4 +1,4 @@
-from rich import traceback
+from rich import traceback, pretty
 traceback.install()
 
 from libs.menu import input_handler
@@ -17,7 +17,11 @@ def main() -> None:
                 dataframe = to_df(data)
                 csv_export(pipeline(dataframe))
         else:
+            pretty.pprint(range(1,toolkit.pages+1))
             data = parse(i)
+            if range(1,toolkit.pages+1) == 1:
+                dataframe = to_df(data)
+                csv_export(pipeline(dataframe))
 
 if __name__ == "__main__":
     main()

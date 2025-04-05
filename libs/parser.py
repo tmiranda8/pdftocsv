@@ -1,5 +1,6 @@
 import tabula, warnings
-from libs.utils import validator, to_list
+from libs.utils import to_list
+from libs.tracing import validator
 from libs.vars import files, toolkit
 
 def parse(i) -> dict:

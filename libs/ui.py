@@ -25,7 +25,7 @@ def file_exists(mode, pdf_name) -> bool:
         templates[mode]['output_path']=rf'csv\{mode}\{pdf_name}.csv'
         return True
     else:
-        rprint(fr"[bold red]Error:[/bold red] '{pdf_name}' no existe en /pdftocsv/{mode}/")
+        rprint(fr"[bold red]Error:[/bold red] '{pdf_name}' no existe en /pdf/{mode}/")
         rprint('Intente de nuevo. Asegurese de que el archivo este ubicado en el directorio correcto')
         return False
 

@@ -37,6 +37,6 @@ templates = {
         'labels':['Fecha','Descripcion','Importe','Fecha Valor','Saldo'],
         'pages':39,
         'first_page_length':20,
-        'last_page_length':51
+        'last_page_length':67
         },
 }

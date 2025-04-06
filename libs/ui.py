@@ -8,7 +8,7 @@ def ask_mode() -> StringPrompt:
         'Modo', 
         choices=list(templates.keys()),
         case_sensitive=False,
-        default=list(templates.keys())[1])
+        default=list(templates.keys())[3])
     return mode
 
 def ask_pdf_name() -> StringPrompt:
@@ -33,7 +33,7 @@ def ask_pages(mode) -> bool:
     pages = IntegerPrompt.ask(
     'Cantidad de paginas',
     default=templates[mode]['pages'])
-    if 0 < pages < 100:
+    if 0 < pages < 125:
         templates[mode]['pages'] = pages
         return True
     else:

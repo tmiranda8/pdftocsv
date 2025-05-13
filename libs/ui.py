@@ -33,7 +33,7 @@ def ask_pages(mode) -> bool:
     pages = IntegerPrompt.ask(
     'Cantidad de paginas',
     default=templates[mode]['pages'])
-    if 0 < pages < 125:
+    if 0 < pages < 4000:
         templates[mode]['pages'] = pages
         return True
     else:

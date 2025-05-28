@@ -39,4 +39,14 @@ templates = {
         'first_page_length':20,
         'last_page_length':67
         },
+    'mercadopago':{
+        'path':r'pdf\mercadopago\test.pdf',
+        'output_path':r'csv\mercadopago\mercadopago.csv',
+        'area':[10,0,85,100], 
+        'columns':[15,46,61,81,100],
+        'labels':['Fecha','Descripcion','ID','Valor','Saldo'],
+        'pages':320,
+        'first_page_length':33,
+        'last_page_length':67
+        },
 }

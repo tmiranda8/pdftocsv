@@ -8,7 +8,7 @@ def ask_mode() -> StringPrompt:
         'Modo', 
         choices=list(templates.keys()),
         case_sensitive=False,
-        default=list(templates.keys())[3])
+        default=list(templates.keys())[4])
     return mode
 
 def ask_pdf_name() -> StringPrompt:

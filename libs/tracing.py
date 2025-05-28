@@ -23,6 +23,7 @@ def trace() -> float:
 
 def validator(dataframe, i) -> None:
     pipeline(dataframe)
+    # rprint(dataframe)
     dataset = tracer_dataset(dataframe, i)
     tracer.set_tracer(dataset)
     results.set_results(i, dataframe.shape[0], trace())

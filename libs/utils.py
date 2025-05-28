@@ -19,6 +19,7 @@ def drop_nan(dataframe) -> None:
 def format(dataframe) -> pandas.DataFrame:
     for label in tracer.labels:
         if label in toolkit.labels:
+            dataframe[label] = dataframe[label].astype(str).str.replace('$','', regex=False)
             dataframe[label] = dataframe[label].astype(str).str.replace('.','', regex=False)
             dataframe[label] = dataframe[label].astype(str).str.replace(',','.', regex=False)
             dataframe[label] = pandas.to_numeric(dataframe[label], errors='coerce')

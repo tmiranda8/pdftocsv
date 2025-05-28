@@ -72,9 +72,9 @@ class Tracer():
         mode_labels = []
         find = []
         for label in toolkit.labels:
-            if label in ['Credito','Debito','Importe','Saldo']:
+            if label in ['Credito','Debito','Importe','Valor','Saldo']:
                 mode_labels.append(label)
-            if label in ['Credito','Debito','Importe']:
+            if label in ['Credito','Debito','Importe','Valor']:
                 find.append(label)
         instance.set_tracer({'labels':mode_labels,'find':find})
     @classmethod

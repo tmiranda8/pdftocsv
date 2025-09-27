@@ -1,6 +1,10 @@
 ### Project
 VE
-
+csv/
+# Ignore everything under pdf/
+pdf/*
+# Keep test.pdf files
+!pdf/*/test.pdf
 
 ### Python ###
 # Byte-compiled / optimized / DLL files

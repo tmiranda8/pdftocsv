@@ -1,6 +1,7 @@
 import pandas
 from libs.vars import toolkit, files, tracer
 from libs.menu import output_console
+from rich import print as rprint
 
 def updater(dict, value) -> dict:
     for label in toolkit.labels:
@@ -17,12 +18,25 @@ def drop_nan(dataframe) -> None:
     dataframe.dropna(subset=['Fecha'],inplace=True)
 
 def format(dataframe) -> pandas.DataFrame:
-    for label in tracer.labels:
-        if label in toolkit.labels:
-            dataframe[label] = dataframe[label].astype(str).str.replace('$','', regex=False)
-            dataframe[label] = dataframe[label].astype(str).str.replace('.','', regex=False)
-            dataframe[label] = dataframe[label].astype(str).str.replace(',','.', regex=False)
+    # rprint(dataframe) #UTIL HACER DEBUG
+    if toolkit.mode == 'supervielle':
+        for label in tracer.labels:
+            dataframe[label] = dataframe[label].astype(str).str.replace(',','', regex=False)
             dataframe[label] = pandas.to_numeric(dataframe[label], errors='coerce')
+            if label == 'Debito':
+                dataframe[label] = -dataframe[label].abs().where(dataframe[label].notna())
+        
+    else:
+            
+        for label in tracer.labels:
+            if label in toolkit.labels:
+                dataframe[label] = dataframe[label].astype(str).str.replace('$','', regex=False)
+                dataframe[label] = dataframe[label].astype(str).str.replace('.','', regex=False)
+                dataframe[label] = dataframe[label].astype(str).str.replace(',','.', regex=False)
+                if toolkit.mode == 'galicia' and label == 'Saldo':
+                    dataframe[label] = dataframe[label].astype(str).str.replace(r'^(\d+\.?\d*)-$', r'-\1', regex=True)
+                dataframe[label] = pandas.to_numeric(dataframe[label], errors='coerce')
+    # rprint(dataframe) #UTIL HACER DEBUG
     return dataframe.reset_index(drop=True)
 
 def pipeline(dataframe) -> pandas.DataFrame:

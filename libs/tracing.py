@@ -1,5 +1,5 @@
 import pandas
-from libs.vars import tracer, results
+from libs.vars import tracer, results, toolkit
 from libs.utils import pipeline
 from rich import print as rprint
 
@@ -23,7 +23,7 @@ def trace() -> float:
 
 def validator(dataframe, i) -> None:
     pipeline(dataframe)
-    # rprint(dataframe)
+    # rprint(dataframe) #UTIL HACER DEBUG
     dataset = tracer_dataset(dataframe, i)
     tracer.set_tracer(dataset)
     results.set_results(i, dataframe.shape[0], trace())

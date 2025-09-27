@@ -6,7 +6,6 @@ from libs.parser import parse
 from libs.utils import updater, pipeline, to_df, csv_export
 from libs.vars import toolkit
 
-
 def main() -> None:
     mode = input_handler()
     toolkit.set_mode(mode)

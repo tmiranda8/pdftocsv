@@ -16,19 +16,29 @@ templates = {
         'columns':[13,46,64,82,100],
         'labels':['Fecha','Descripcion','Credito','Debito','Saldo'],
         'pages':2,
-        'first_page_length':51,
+        'first_page_length':59,
         'last_page_length':55
         },
     'supervielle':{
         'path':r'pdf\supervielle\test.pdf',
         'output_path':r'csv\supervielle\supervielle.csv',
-        'area':[24,0,91,100], 
-        'columns':[11,17,55,67,85,100],
-        'labels':['Fecha','ID','Descripcion','Debito','Credito','Saldo'],
-        'pages':15,
-        'first_page_length':35,
-        'last_page_length':51
+        'area':[24,0,90,100], 
+        'columns':[13,52,67,85,100],
+        'labels':['Fecha','Descripcion','Debito','Credito','Saldo'],
+        'pages':520,
+        'first_page_length':41,
+        'last_page_length':69
         },
+    # 'supervielle2':{
+    #     'path':r'pdf\supervielle\test.pdf',
+    #     'output_path':r'csv\supervielle\supervielle.csv',
+    #     'area':[24,0,90,100], 
+    #     'columns':[13,52,67,85,100],
+    #     'labels':['Fecha','Descripcion','Debito','Credito','Saldo'],
+    #     'pages':520,
+    #     'first_page_length':41,
+    #     'last_page_length':69
+    #     },
     'provincia':{
         'path':r'pdf\provincia\test.pdf',
         'output_path':r'csv\provincia\provincia.csv',
@@ -43,10 +53,10 @@ templates = {
         'path':r'pdf\mercadopago\test.pdf',
         'output_path':r'csv\mercadopago\mercadopago.csv',
         'area':[10,0,85,100], 
-        'columns':[15,46,61,81,100],
+        'columns':[15,47,61,81,100],
         'labels':['Fecha','Descripcion','ID','Valor','Saldo'],
         'pages':320,
         'first_page_length':33,
-        'last_page_length':67
+        'last_page_length':84
         },
 }

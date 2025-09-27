@@ -1,4 +1,4 @@
-import os
+import os, pathlib
 from libs.interface import StringPrompt, IntegerPrompt
 from libs.modes import templates
 from rich import print as rprint
@@ -8,7 +8,7 @@ def ask_mode() -> StringPrompt:
         'Modo', 
         choices=list(templates.keys()),
         case_sensitive=False,
-        default=list(templates.keys())[4])
+        default=list(templates.keys())[1])
     return mode
 
 def ask_pdf_name() -> StringPrompt:
@@ -19,7 +19,8 @@ def ask_pdf_name() -> StringPrompt:
     return pdf_name
 
 def file_exists(mode, pdf_name) -> bool:
-    pdf_path = rf'pdf\{mode}\{pdf_name}.pdf'
+    #pdf_path = rf'pdf\{mode}\{pdf_name}.pdf'
+    pdf_path = os.path.join("pdf", mode, f"{pdf_name}.pdf")
     if os.path.exists(pdf_path):
         templates[mode]['path']=pdf_path
         templates[mode]['output_path']=rf'csv\{mode}\{pdf_name}.csv'

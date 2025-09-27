@@ -21,6 +21,6 @@ def parse(i) -> dict:
             dataframe = tabula.read_pdf(files.path, pages=i, pandas_options={'header': None}, area=toolkit.area, relative_area=True, relative_columns=True, columns=toolkit.columns)
         dataframe[0].columns = toolkit.labels
         data = to_list(dataframe[0])
-        # rprint(data)
+        #rprint(data)
         validator(dataframe[0], i)
     return data

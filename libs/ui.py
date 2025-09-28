@@ -23,7 +23,7 @@ def file_exists(mode, pdf_name) -> bool:
     pdf_path = os.path.join("pdf", mode, f"{pdf_name}.pdf")
     if os.path.exists(pdf_path):
         templates[mode]['path']=pdf_path
-        templates[mode]['output_path']=rf'csv\{mode}\{pdf_name}.csv'
+        templates[mode]['output_path']=os.path.join("csv", mode, f"{pdf_name}.csv")
         return True
     else:
         rprint(fr"[bold red]Error:[/bold red] '{pdf_name}' no existe en /pdf/{mode}/")

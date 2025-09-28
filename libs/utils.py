@@ -41,7 +41,7 @@ def format(dataframe) -> pandas.DataFrame:
                 if toolkit.mode == 'galicia' and label == 'Saldo':
                     dataframe[label] = dataframe[label].astype(str).str.replace(r'^(\d+\.?\d*)-$', r'-\1', regex=True)
                 dataframe[label] = pandas.to_numeric(dataframe[label], errors='coerce')
-    rprint(dataframe) #UTIL HACER DEBUG
+    # rprint(dataframe) #UTIL HACER DEBUG
     return dataframe.reset_index(drop=True)
 
 def pipeline(dataframe) -> pandas.DataFrame:

@@ -25,9 +25,14 @@ def format(dataframe) -> pandas.DataFrame:
             dataframe[label] = pandas.to_numeric(dataframe[label], errors='coerce')
             if label == 'Debito':
                 dataframe[label] = -dataframe[label].abs().where(dataframe[label].notna())
-        
+    elif toolkit.mode == 'supervielle_nuevo':
+        for label in tracer.labels:
+            dataframe[label] = dataframe[label].astype(str).str.replace('.','', regex=False)
+            dataframe[label] = dataframe[label].astype(str).str.replace(',','.', regex=False)
+            dataframe[label] = pandas.to_numeric(dataframe[label], errors='coerce')
+            if label == 'Debito':
+                dataframe[label] = -dataframe[label].abs().where(dataframe[label].notna())
     else:
-            
         for label in tracer.labels:
             if label in toolkit.labels:
                 dataframe[label] = dataframe[label].astype(str).str.replace('$','', regex=False)
@@ -36,7 +41,7 @@ def format(dataframe) -> pandas.DataFrame:
                 if toolkit.mode == 'galicia' and label == 'Saldo':
                     dataframe[label] = dataframe[label].astype(str).str.replace(r'^(\d+\.?\d*)-$', r'-\1', regex=True)
                 dataframe[label] = pandas.to_numeric(dataframe[label], errors='coerce')
-    # rprint(dataframe) #UTIL HACER DEBUG
+    rprint(dataframe) #UTIL HACER DEBUG
     return dataframe.reset_index(drop=True)
 
 def pipeline(dataframe) -> pandas.DataFrame:

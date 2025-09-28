@@ -29,16 +29,16 @@ templates = {
         'first_page_length':41,
         'last_page_length':69
         },
-    # 'supervielle_nuevo':{
-    #     'path':r'pdf\supervielle_nuevo\test.pdf',
-    #     'output_path':r'csv\supervielle_nuevo\supervielle.csv',
-    #     'area':[24,0,90,100], 
-    #     'columns':[13,52,67,85,100],
-    #     'labels':['Fecha','Descripcion','Debito','Credito','Saldo'],
-    #     'pages':520,
-    #     'first_page_length':41,
-    #     'last_page_length':69
-    #     },
+    'supervielle_nuevo':{
+        'path':r'pdf\supervielle_nuevo\test.pdf',
+        'output_path':r'csv\supervielle_nuevo\supervielle.csv',
+        'area':[20,0,70,90], 
+        'columns':[18,56,67,85,100],
+        'labels':['Fecha','Descripcion','Debito','Credito','Saldo'],
+        'pages':21,
+        'first_page_length':48,
+        'last_page_length':30
+        },
     'provincia':{
         'path':r'pdf\provincia\test.pdf',
         'output_path':r'csv\provincia\provincia.csv',

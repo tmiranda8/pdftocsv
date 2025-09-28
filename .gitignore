@@ -3,7 +3,9 @@ VE
 csv/
 # Ignore everything under pdf/
 pdf/*
-# Keep test.pdf files
+# Keep subfolders and test.pdf files only
+!pdf/*/
+pdf/*/*
 !pdf/*/test.pdf
 
 ### Python ###

@@ -42,7 +42,7 @@ class Mode():
         if mode in libs.modes.templates:
             setattr(instance, 'mode', mode)
             for key, value in libs.modes.templates[mode].items():
-                if hasattr(instance,key):
+                if hasattr(instance, key):
                     setattr(instance,key,value)
                 elif hasattr(files, key):
                     files.set_path(key,value)

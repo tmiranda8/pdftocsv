@@ -12,7 +12,12 @@ def parse(i) -> dict:
             first[0] = toolkit.first_page_length
             if i == (toolkit.pages):
                 first[2] = toolkit.last_page_length
-            dataframe = tabula.read_pdf(files.path, pages=i, pandas_options={'header': None}, area=first, relative_area=True, relative_columns=True, columns=toolkit.columns)
+            if toolkit.mode == 'supervielle_nuevo':
+                column_offset = toolkit.columns.copy()
+                column_offset = [x-4 for x in column_offset]
+                dataframe = tabula.read_pdf(files.path, pages=i, pandas_options={'header': None}, area=first, relative_area=True, relative_columns=True, columns=column_offset)
+            else:
+                dataframe = tabula.read_pdf(files.path, pages=i, pandas_options={'header': None}, area=first, relative_area=True, relative_columns=True, columns=toolkit.columns)
         elif i == (toolkit.pages):
             last = toolkit.area.copy()
             last[2] = toolkit.last_page_length
@@ -21,6 +26,5 @@ def parse(i) -> dict:
             dataframe = tabula.read_pdf(files.path, pages=i, pandas_options={'header': None}, area=toolkit.area, relative_area=True, relative_columns=True, columns=toolkit.columns)
         dataframe[0].columns = toolkit.labels
         data = to_list(dataframe[0])
-        #rprint(data)
         validator(dataframe[0], i)
     return data
